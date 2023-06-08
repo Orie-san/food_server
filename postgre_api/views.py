@@ -11,13 +11,14 @@ def register_user(request):
         data = json.loads(request.body)
         name = data['name']
         surname = data['surname']
+        sexe = data['sexe']
         email = data['email']
         password = make_password(data['password'])
         age = data['age']
         weight = data['weight']
         height = data['height']
         profession = data['profession']
-        user = User(name=name, surname=surname, email=email, password=password, age=age, weight=weight, height=height, profession=profession)
+        user = User(name=name, surname=surname, sexe=sexe, email=email, password=password, age=age, weight=weight, height=height, profession=profession)
         user.save()
         return HttpResponse(status=200)
     else:
